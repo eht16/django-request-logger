@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 
+DJANGO_REQUEST_LOGFILE_SETTING = 'DJANGO_REQUEST_LOGFILE'
+REQUEST_ID_HEADER_SETTING = 'LOG_REQUEST_ID_HEADER'
+NO_REQUEST_ID = '-'
+
 from django.conf import settings, LazySettings
 from django_request_logger.log import LOGGING
 import threading
@@ -8,10 +12,6 @@ __version__ = "0.1"
 
 # ThreadLocal - dirty but does the job
 local = threading.local()
-
-DJANGO_REQUEST_LOGFILE_SETTING = 'DJANGO_REQUEST_LOGFILE'
-REQUEST_ID_HEADER_SETTING = 'LOG_REQUEST_ID_HEADER'
-NO_REQUEST_ID = '-'
 
 # override any existing logging configuration
 settings.LOGGING = LOGGING
