@@ -9,7 +9,7 @@ __version__ = "0.1"
 # ThreadLocal - dirty but does the job
 local = threading.local()
 
-
+DJANGO_REQUEST_LOGFILE_SETTING = 'DJANGO_REQUEST_LOGFILE'
 REQUEST_ID_HEADER_SETTING = 'LOG_REQUEST_ID_HEADER'
 NO_REQUEST_ID = '-'
 

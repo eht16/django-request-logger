@@ -1,6 +1,8 @@
 # coding: utf-8
 
 from django.conf import settings
+from django_request_logger import DJANGO_REQUEST_LOGFILE_SETTING
+
 
 # it is dirty to configure logging this way in real code instead of a config file
 # but in this case on purpose to have one logging config easily pluggable
@@ -17,7 +19,7 @@ LOGGING = {
         'logstash': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': settings.LOGFILE,
+            'filename': getattr(settings, DJANGO_REQUEST_LOGFILE_SETTING),
             'mode': 'a',
             'filters': ['process_request'],
             'formatter': 'logstash'

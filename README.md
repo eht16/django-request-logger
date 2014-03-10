@@ -40,7 +40,7 @@ Installation
 
 3. Configure log file path in settings.py:
 
-    LOGFILE = '/var/log/django/myproject.log'
+    DJANGO_REQUEST_LOGFILE = '/var/log/django/myproject.log'
 
 
 License
