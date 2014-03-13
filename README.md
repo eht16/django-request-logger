@@ -26,30 +26,36 @@ Still, these are not the best practices ever and the code might be buggy.
 
 Installation
 ============
-1. Install:
+- Install:
 
     pip install git+git://github.com/eht16/django-request-logger#egg=django-request-logger
 
-2. Add middleware "" to MIDDLEWARE_CLASSES (ideally near the top):
+- Add middleware "" to MIDDLEWARE_CLASSES (ideally near the top):
 
-    MIDDLEWARE_CLASSES = (
-        "...",
-        "django_request_logger.middleware.RequestIDMiddleware",
-        "...",
-    )
+```python
+MIDDLEWARE_CLASSES = (
+    "...",
+    "django_request_logger.middleware.RequestIDMiddleware",
+    "...",
+)
+```
 
-3. Configure log file path in settings.py:
+- Configure log file path in settings.py:
 
-    DJANGO_REQUEST_LOGFILE = '/var/log/django/myproject.log'
+```python
+DJANGO_REQUEST_LOGFILE = '/var/log/django/myproject.log'
+```
 
-4. Other settings in settings.py:
+- Other settings in settings.py:
 
-    # add the request-id to the response HTTP headers, e.g. for logging with Lighttpd
-    # set this to resulting header name which should be added, set to None or unset to disable
-    DJANGO_REQUEST_SET_REQUEST_ID_HEADER = 'X-LIGHTTPD-REQUESTID'
-    # read an already existing request-id from the request HTTP headers, e.g. set by a webserver
-    # set this to given header name which should be added, set to None or unset to disable
-    DJANGO_REQUEST_LOG_REQUEST_ID_HEADER = 'HTTP_X_REQUEST_ID'
+```python
+# add the request-id to the response HTTP headers, e.g. for logging with Lighttpd
+# set this to resulting header name which should be added, set to None or unset to disable
+DJANGO_REQUEST_SET_REQUEST_ID_HEADER = 'X-LIGHTTPD-REQUESTID'
+# read an already existing request-id from the request HTTP headers, e.g. set by a webserver
+# set this to given header name which should be added, set to None or unset to disable
+DJANGO_REQUEST_LOG_REQUEST_ID_HEADER = 'HTTP_X_REQUEST_ID'
+```
 
 
 License
