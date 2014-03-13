@@ -7,7 +7,11 @@ and stripped down to my needs.
 """
 
 from django.conf import settings
-from django_request_logger import local, REQUEST_ID_HEADER_SETTING, NO_REQUEST_ID
+from django_request_logger import (
+    NO_REQUEST_ID,
+    REQUEST_ID_HEADER_SETTING,
+    REQUEST_ID_RESPONSE_HEADER_SETTING,
+    local)
 import uuid
 
 
@@ -30,3 +34,10 @@ class RequestIDMiddleware(object):
     #----------------------------------------------------------------------
     def _generate_id(self):
         return uuid.uuid4().hex
+
+    #----------------------------------------------------------------------
+    def process_response(self, request, response):
+        header_name = getattr(settings, REQUEST_ID_RESPONSE_HEADER_SETTING, None)
+        if header_name and hasattr(local, 'request_id'):
+            response[header_name] = local.request_id
+        return response
