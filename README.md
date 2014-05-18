@@ -30,7 +30,7 @@ Installation
 
     pip install git+git://github.com/eht16/django-request-logger#egg=django-request-logger
 
-- Add middleware "" to MIDDLEWARE_CLASSES (ideally near the top):
+- Add middleware "django_request_logger.middleware.RequestIDMiddleware" to MIDDLEWARE_CLASSES (ideally near the top):
 
 ```python
 MIDDLEWARE_CLASSES = (
@@ -39,6 +39,8 @@ MIDDLEWARE_CLASSES = (
     "...",
 )
 ```
+
+- Add to "django_request_logger" to INSTALLED_APPS if you want manage commands also have logged
 
 - Configure log file path in settings.py:
 
@@ -55,6 +57,8 @@ DJANGO_REQUEST_SET_REQUEST_ID_HEADER = 'X-LIGHTTPD-REQUESTID'
 # read an already existing request-id from the request HTTP headers, e.g. set by a webserver
 # set this to given header name which should be added, set to None or unset to disable
 DJANGO_REQUEST_LOG_REQUEST_ID_HEADER = 'HTTP_X_REQUEST_ID'
+# disable any logging config in this app, may be useful for local development/debugging
+DJANGO_REQUEST_ENABLE = False
 ```
 
 
