@@ -9,7 +9,7 @@ from django_request_logger import DJANGO_REQUEST_LOGFILE_SETTING
 # into multiple projects
 LOGGING = {
     'version': 1,
-    'disable_existing_loggers': True,
+    'disable_existing_loggers': False,
     'handlers': {
         'mail_admins': {
             'level': 'DEBUG',
