@@ -12,7 +12,7 @@ LOGGING = {
     'disable_existing_loggers': False,
     'handlers': {
         'mail_admins': {
-            'level': 'DEBUG',
+            'level': 'WARN',
             'class': 'django.utils.log.AdminEmailHandler',
             'filters': ['require_debug_false'],
         },
@@ -40,17 +40,17 @@ LOGGING = {
     },
     'loggers': {
         '': {
-            'handlers': ['logstash'],
+            'handlers': ['mail_admins', 'logstash'],
             'level': 'DEBUG',
             'propagate': False,
         },
         'django': {
-            'handlers': ['logstash'],
+            'handlers': ['mail_admins', 'logstash'],
             'level': 'DEBUG',
             'propagate': True,
         },
         'django.db': {
-            'handlers': ['logstash'],
+            'handlers': ['mail_admins', 'logstash'],
             'level': 'INFO',
             'propagate': True,
         },
