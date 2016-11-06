@@ -27,8 +27,7 @@ Still, these are not the best practices ever and the code might be buggy.
 Installation
 ============
 - Install:
-
-    pip install git+git://github.com/eht16/django-request-logger#egg=django-request-logger
+`pip install git+git://github.com/eht16/django-request-logger#egg=django-request-logger`
 
 - Add middleware "django_request_logger.middleware.RequestIDMiddleware" to MIDDLEWARE_CLASSES (ideally near the top):
 
